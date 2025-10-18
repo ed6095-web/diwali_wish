@@ -1,0 +1,42 @@
+.particle-system {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(2px);
+  box-shadow: 0 0 10px currentColor;
+  animation: particleFloat linear infinite, particleFade ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(50px, -80px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(0, -150px) rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: translate(-50px, -80px) rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes particleFade {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.6; }
+}

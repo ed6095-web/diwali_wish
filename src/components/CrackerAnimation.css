@@ -1,0 +1,137 @@
+.cracker-animation-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.cracker-rocket {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 100vh;
+}
+
+/* Rocket Body - HIDDEN (no visible rocket) */
+.rocket-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.rocket-body.launched {
+  animation: rocketLaunchInvisible 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.rocket-tip {
+  display: none;
+}
+
+.rocket-tail {
+  display: none;
+}
+
+@keyframes rocketLaunchInvisible {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  100% {
+    bottom: 78vh;
+    opacity: 0;
+  }
+}
+
+/* Firework Burst - ONLY THIS IS VISIBLE */
+.cracker-firework {
+  position: absolute;
+  bottom: 75vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  animation: fireworkExpand 0.5s ease-out forwards;
+}
+
+@keyframes fireworkExpand {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Burst Particles */
+.firework-burst-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--burstColor);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px var(--burstColor),
+    0 0 40px var(--burstColor),
+    0 0 60px var(--burstColor);
+  animation: burstParticle 2.5s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes burstParticle {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-250px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Sparkling stars around burst */
+.firework-burst-particle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px white, 0 0 25px var(--burstColor);
+  animation: sparkle 1s ease-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(2); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .firework-burst-particle {
+    width: 6px;
+    height: 6px;
+  }
+  
+  @keyframes burstParticle {
+    0% {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-180px) scale(0.2);
+      opacity: 0;
+    }
+  }
+}

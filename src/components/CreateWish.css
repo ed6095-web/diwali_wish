@@ -1,0 +1,413 @@
+.create-wish-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  top: 30px;
+  right: 180px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 150;
+}
+
+.back-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 10px 30px rgba(255, 215, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+/* Main Content */
+.create-wish-content {
+  width: 100%;
+  max-width: 700px;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+/* Title Section */
+.create-title-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+.create-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.create-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.input-group {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 30px rgba(255, 215, 0, 0.2),
+    0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.input-label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 1rem 1.3rem;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.custom-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.custom-input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.1);
+  transform: scale(1.01);
+}
+
+/* Create Reveal Button */
+.create-reveal-btn {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd700, #ff8c00, #ff6347);
+  border: none;
+  border-radius: 16px;
+  color: #1a0033;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(255, 140, 0, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.2);
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.create-reveal-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 15px 40px rgba(255, 140, 0, 0.6),
+    0 0 80px rgba(255, 215, 0, 0.4);
+}
+
+.create-reveal-btn:active {
+  transform: translateY(-2px) scale(1);
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.create-reveal-btn:hover .btn-shine {
+  left: 100%;
+}
+
+.revealing {
+  animation: btnPulse 0.8s ease;
+}
+
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Custom Wish Display */
+.custom-wish-display {
+  padding: 3rem 2.5rem;
+  animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-wish-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.diya-icon-custom {
+  font-size: 2.5rem;
+  animation: diyaBounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes diyaBounce {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.custom-wish-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #ffd700;
+  margin: 0;
+}
+
+/* Wish Body */
+.custom-wish-body {
+  margin-bottom: 2.5rem;
+}
+
+.recipient-greeting {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #ffb347;
+  margin-bottom: 1.5rem;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.custom-wish-message {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+.custom-blessing {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: #ffd700;
+  font-style: italic;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.custom-signature {
+  text-align: right;
+  animation: slideInRight 0.8s ease-out 0.7s backwards;
+}
+
+.from-line {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.sender-signature {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: #ffd700;
+  margin: 0;
+}
+
+/* Action Buttons */
+.custom-wish-actions {
+  display: flex;
+  justify-content: center;
+  animation: fadeInUp 1s ease-out 0.9s backwards;
+}
+
+.action-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  border-color: #ffd700;
+  background: rgba(255, 215, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+}
+
+.action-btn:active {
+  transform: translateY(-1px);
+}
+
+.reset-wish-btn:hover {
+  color: #ff8c00;
+  border-color: #ff8c00;
+  background: rgba(255, 140, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .create-wish-container {
+    padding: 1.5rem;
+  }
+
+  .back-btn {
+    top: 90px;
+    right: 20px;
+    left: auto;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .custom-wish-display {
+    padding: 2.5rem 2rem;
+  }
+
+  .custom-signature {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    top: 80px;
+    right: 15px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .custom-wish-display {
+    padding: 2rem 1.5rem;
+  }
+
+  .input-group {
+    padding: 1.2rem;
+  }
+}

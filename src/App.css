@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600;700&family=Cinzel:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Night Theme - Deep Royal Gradient */
+.theme-night {
+  background: linear-gradient(135deg, 
+    #0a0015 0%,
+    #1a0033 25%, 
+    #2d1b4e 50%,
+    #4a2c6b 75%,
+    #2d1b4e 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Day Theme - Golden Sunset Gradient */
+.theme-day {
+  background: linear-gradient(135deg,
+    #ff6b35 0%,
+    #f7931e 20%,
+    #fdc830 40%,
+    #f37335 60%,
+    #ff512f 80%,
+    #dd2476 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Glassmorphism Base */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+
+/* Advanced Glow Effects - Night Theme */
+.theme-night .neon-glow-gold {
+  color: #ffd700;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 179, 71, 0.6),
+    0 0 30px rgba(255, 140, 0, 0.4),
+    0 0 40px rgba(255, 99, 71, 0.2);
+  animation: pulseGlowNight 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlowNight {
+  0%, 100% { 
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 179, 71, 0.6);
+  }
+  50% { 
+    text-shadow: 
+      0 0 20px rgba(255, 215, 0, 1),
+      0 0 40px rgba(255, 179, 71, 0.8),
+      0 0 60px rgba(255, 140, 0, 0.6);
+  }
+}
+
+/* Advanced Glow Effects - Day Theme (Darker, High Contrast) */
+.theme-day .neon-glow-gold {
+  color: #8b0000;
+  text-shadow: 
+    0 0 15px rgba(139, 0, 0, 0.9),
+    0 0 25px rgba(139, 0, 0, 0.6),
+    0 0 35px rgba(255, 69, 0, 0.4),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: pulseGlowDay 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlowDay {
+  0%, 100% { 
+    text-shadow: 
+      0 0 15px rgba(139, 0, 0, 0.9),
+      0 0 25px rgba(139, 0, 0, 0.6),
+      2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  50% { 
+    text-shadow: 
+      0 0 25px rgba(139, 0, 0, 1),
+      0 0 40px rgba(139, 0, 0, 0.8),
+      0 0 50px rgba(255, 69, 0, 0.5),
+      2px 2px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Text color fixes for Day theme */
+.theme-day .dashboard-title,
+.theme-day .create-title,
+.theme-day .custom-wish-title,
+.theme-day .sender-name-dash,
+.theme-day .sender-signature {
+  color: #8b0000 !important;
+}
+
+.theme-day .recipient-greeting,
+.theme-day .blessing-text,
+.theme-day .prosperity-text,
+.theme-day .custom-blessing,
+.theme-day .input-label {
+  color: #4a0000 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.theme-day .main-wish-text,
+.theme-day .custom-wish-message,
+.theme-day .festival-subtitle,
+.theme-day .create-subtitle,
+.theme-day .from-label,
+.theme-day .from-line {
+  color: rgba(0, 0, 0, 0.85) !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Glass card more visible in day theme */
+.theme-day .glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Input styling for day theme */
+.theme-day .custom-input,
+.theme-day .modern-input {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(139, 0, 0, 0.4);
+  color: #2d0000;
+}
+
+.theme-day .custom-input::placeholder,
+.theme-day .modern-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.theme-day .custom-input:focus,
+.theme-day .modern-input:focus {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(139, 0, 0, 0.8);
+  box-shadow: 
+    0 0 20px rgba(139, 0, 0, 0.3),
+    0 0 40px rgba(139, 0, 0, 0.1);
+}
+
+/* Button text for day theme */
+.theme-day .action-btn {
+  border: 2px solid rgba(139, 0, 0, 0.6);
+  color: #2d0000;
+}
+
+.theme-day .action-btn:hover {
+  border-color: #8b0000;
+  background: rgba(139, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(139, 0, 0, 0.3);
+}
+
+.theme-day .back-btn {
+  color: #2d0000;
+}
+
+/* Menu text for day theme */
+.theme-day .menu-text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(15px);
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    min-height: 100svh;
+  }
+}

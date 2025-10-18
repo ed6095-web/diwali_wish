@@ -1,0 +1,281 @@
+.dashboard-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Dashboard Controls (Theme & Celebrate) */
+.dashboard-controls {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 100;
+}
+
+.control-btn-dash {
+  width: 65px;
+  height: 65px;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn-dash:hover {
+  transform: translateY(-8px) scale(1.15);
+  box-shadow: 
+    0 15px 40px rgba(255, 215, 0, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.3);
+}
+
+.control-btn-dash:active {
+  transform: translateY(-4px) scale(1.1);
+}
+
+.celebrate-dash {
+  animation: celebratePulse 2s ease-in-out infinite;
+}
+
+@keyframes celebratePulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 99, 71, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 99, 71, 0.8), 0 0 60px rgba(255, 140, 0, 0.4);
+  }
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  width: 100%;
+  max-width: 900px;
+  animation: fadeInScale 1s ease-out;
+}
+
+.wish-card-main {
+  padding: 3.5rem 3rem;
+  text-align: center;
+  animation: cardEntrance 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Diya Header */
+.diya-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.diya-icon-large {
+  font-size: 3rem;
+  animation: diyaGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes diyaGlow {
+  0%, 100% { 
+    transform: scale(1) rotate(-5deg);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+  }
+  50% { 
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 35px rgba(255, 215, 0, 0.9));
+  }
+}
+
+.dashboard-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #ffd700;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.festival-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* Wish Message */
+.wish-message-container {
+  margin: 2.5rem 0;
+  animation: fadeInUp 1.2s ease-out 0.3s backwards;
+}
+
+.main-wish-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.blessing-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 2.3vw, 1.35rem);
+  color: #ffb347;
+  margin: 1.5rem 0;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.prosperity-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.1rem, 2.3vw, 1.35rem);
+  color: #ffd700;
+  margin: 1.5rem 0;
+  font-weight: 400;
+}
+
+/* Signature Section */
+.signature-section {
+  margin-top: 3rem;
+  animation: fadeInUp 1.4s ease-out 0.6s backwards;
+}
+
+.signature-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  margin: 0 auto 1.5rem;
+  animation: dividerGlow 2s ease-in-out infinite;
+}
+
+@keyframes dividerGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+}
+
+.from-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-bottom: 0.8rem;
+}
+
+.sender-name-dash {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffd700;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+
+  .dashboard-controls {
+    top: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+
+  .control-btn-dash {
+    width: 55px;
+    height: 55px;
+    font-size: 1.7rem;
+  }
+
+  .wish-card-main {
+    padding: 2.5rem 1.8rem;
+  }
+
+  .diya-header {
+    gap: 1rem;
+  }
+
+  .diya-icon-large {
+    font-size: 2.2rem;
+  }
+
+  .wish-message-container {
+    margin: 2rem 0;
+  }
+
+  .signature-section {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-controls {
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+
+  .control-btn-dash {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .wish-card-main {
+    padding: 2rem 1.3rem;
+  }
+
+  .diya-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .diya-icon-large {
+    font-size: 2rem;
+  }
+}
